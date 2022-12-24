@@ -1,0 +1,32 @@
+<form
+  (ngSubmit)="delete()"
+  class="space-y-6">
+  <header class="flex justify-between items-center">
+    <h1 class="text-xl font-bold">Delete confirmation</h1>
+
+    <button
+      (click)="closeDialog()"
+      class="rounded-full bg-white p-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+  </header>
+
+  <div>
+    <h2 class="text-md font-semibold">Are you sure you want to delete TODO with id {{overlayRef.data.todo.id}} ?</h2>
+    <p class="text-sm text-gray-700">This operation cannot be undone!</p>
+  </div>
+
+  <div class="flex justify-end">
+    <button
+      (click)="closeDialog()"
+      type="button"
+      class="rounded-md border border-gray-300 bg-white py-2 px-4 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+      Cancel
+    </button>
+    <button type="submit" class="ml-3 inline-flex justify-center rounded-md border border-transparent bg-red-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2">
+      Delete
+    </button>
+  </div>
+</form>

@@ -1,0 +1,69 @@
+<form
+  [formGroup]="todoForm"
+  (ngSubmit)="submit()"
+  class="space-y-6">
+  <header class="flex justify-between items-center">
+    <h1 class="text-xl font-bold">{{ todo ? 'Edit todo' : 'New Todo' }}</h1>
+
+    <button
+      (click)="closeDialog()"
+      class="rounded-full border border-gray-300 bg-white p-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+  </header>
+  <hr class="mt-4">
+
+  <div class="bg-white py-5">
+    <div class="mt-5 space-y-6 md:col-span-2 md:mt-0">
+      <div class="col-span-6 sm:col-span-3">
+        <label for="label" class="block text-sm font-medium text-gray-700">Label</label>
+        <input
+          formControlName="label"
+          type="text"
+          id="label"
+          autocomplete="title"
+          class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+        />
+      </div>
+
+      <div class="col-span-6 sm:col-span-3">
+        <label for="category" class="block text-sm font-medium text-gray-700">Category</label>
+        <input
+          formControlName="category"
+          type="text"
+          id="category"
+          autocomplete="title"
+          class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+        />
+      </div>
+
+      <div>
+        <label for="description" class="block text-sm font-medium text-gray-700">Description</label>
+        <div class="mt-1">
+          <textarea
+            formControlName="description"
+            id="description"
+            rows="3"
+            class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+            placeholder="Eggs, milk..."
+          ></textarea>
+        </div>
+        <p class="mt-2 text-sm text-gray-500">Brief description for your todo.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="flex justify-end">
+    <button
+      (click)="closeDialog()"
+      type="button"
+      class="rounded-md border border-gray-300 bg-white py-2 px-4 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+      Cancel
+    </button>
+    <button type="submit" class="ml-3 inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+      {{ todo ? 'Update' : 'Create' }}
+    </button>
+  </div>
+</form>
