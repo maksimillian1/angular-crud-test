@@ -1,0 +1,45 @@
+.cdk-overlay-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.14);
+  opacity: 0.5;
+  z-index: 40;
+}
+
+.default-overlay {
+  z-index: 1000;
+  position: fixed !important;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  background: rgba(0, 0, 0, 0.14);
+  border-radius: 8px;
+  padding: 3rem;
+}
+
+.fullscreen-overlay {
+  z-index: 1000;
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.default-form-overlay {
+  position: fixed !important;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 42rem;
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  z-index: 110;
+  max-height: 80vh;
+  overflow: auto;
+}

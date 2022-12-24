@@ -1,18 +1,22 @@
 {
-  "tasks": [
+  "todos": [
     {
       "id": 1,
-      "label": "Kitchen Cleanup",
-      "description":  "Clean my dirty kitchen",
-      "category": "house",
-      "done": false
+      "label": "Taxes",
+      "description": "llll",
+      "category": "bureaucracy",
+      "created_at": "2022-12-24T16:50:32.589Z",
+      "updated_at": "2022-12-24T18:18:16.083Z",
+      "done": null
     },
     {
       "id": 2,
-      "label": "Taxes",
-      "description":  "Start doing my taxes and contact my accountant jhon for advice",
-      "category": "bureaucracy",
-      "done": "22-10-2019"
+      "label": "Pods",
+      "description": "joy",
+      "category": "to_buy",
+      "created_at": "2022-12-24T16:50:32.589Z",
+      "updated_at": "2022-12-24T16:50:32.589Z",
+      "done": "2022-12-24T16:50:32.589Z"
     }
   ]
 }
