@@ -1,3 +1,4 @@
+<!--TODO: sort and grid view-->
 <div class="py-10">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     <div class="flex items-baseline justify-between border-b border-gray-200 pb-6">
@@ -54,19 +55,36 @@
       <h2 id="products-heading" class="sr-only">Products</h2>
 
       <div class="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4">
-        <app-todo-filters [(mobileFilterOpen)]="mobileFilterOpen">
+        <app-todo-filters
+          [categorySelectionModel]="categorySelectionModel"
+          (categorySelectionChange)="onCategorySelectionChange()"
+          [(mobileFilterOpen)]="mobileFilterOpen">
         </app-todo-filters>
 
         <div class="lg:col-span-3">
-          <ul role="list" class="border border-gray-300 rounded-md divide-y divide-gray-200">
-            <app-todo-item
-              (deleteClicked)="openDeleteDialog(item)"
-              (editClicked)="openEditDialog(item)"
-              class="block"
-              [item]="item"
-              *ngFor="let item of todoService.items$ | async">
-            </app-todo-item>
-          </ul>
+          <ng-container *ngIf="todoService.items$ | async as items">
+            <ul *ngIf="items.length; else noItems" role="list" class="border border-gray-300 rounded-md divide-y divide-gray-200">
+              <app-todo-item
+                (doneClicked)="onDoneClick(item)"
+                (deleteClicked)="openDeleteDialog(item)"
+                (editClicked)="openEditDialog(item)"
+                class="block"
+                [item]="item"
+                *ngFor="let item of items">
+              </app-todo-item>
+            </ul>
+          </ng-container>
+
+          <ng-template #noItems>
+            <div class="h-[360px] flex items-center w-full justify-center flex-col">
+              <h2 class="text-lg font-bold text-center">
+                There are no items
+              </h2>
+              <p class="text-gray-500">
+                You could change your filter or create new one.
+              </p>
+            </div>
+          </ng-template>
         </div>
       </div>
     </section>

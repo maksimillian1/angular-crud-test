@@ -9,8 +9,13 @@ export interface TodoModel extends BaseModel {
 }
 
 export enum TodoCategory {
-  HOME_ASSIGNMENTS = '',
-  TO_CELL = '',
-  TO_BUY = '',
-  NEW_YEAR_PLANNING = '',
+  HOME = 'home',
+  TO_BUY = 'to_buy',
+  IMPORTANT = 'important',
+}
+
+export enum TodoCategoryLabel {
+  HOME = 'Home',
+  TO_BUY = 'To buy',
+  IMPORTANT = 'Important',
 }

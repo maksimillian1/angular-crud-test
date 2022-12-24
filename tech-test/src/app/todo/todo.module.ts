@@ -15,6 +15,10 @@ const ROUTES: Routes = [
   {
     path: '',
     component: TodoListComponent,
+  },
+  {
+    path: '**',
+    redirectTo: '',
   }
 ];
 

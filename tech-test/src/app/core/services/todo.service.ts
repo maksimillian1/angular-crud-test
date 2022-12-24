@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
+import { BehaviorSubject, Observable, of, Subject } from 'rxjs';
 import { TodoModel } from '../models/todo.model';
 import { environment } from '../../../environments/environment';
 
@@ -9,16 +9,16 @@ import { environment } from '../../../environments/environment';
 })
 export class TodoService {
 
+  public refreshTrigger$ = new Subject<void>();
+  public search$ = new BehaviorSubject<string>('');
   public items$: Observable<TodoModel[]> = of([]);
 
   public readonly BASE_URI = `${environment.apiUrl}/todos`;
 
   constructor(private http: HttpClient) {}
 
-  public fetchTodos(params?: HttpParams) {}
-
   public getTodos(params?: HttpParams): Observable<TodoModel[]> {
-    return this.http.get<TodoModel[]>(this.BASE_URI);
+    return this.http.get<TodoModel[]>(this.BASE_URI, {params});
   }
 
   public updateTodo(id: number, payload: Omit<TodoModel, 'id' | 'created_at'>): Observable<TodoModel> {

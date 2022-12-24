@@ -5,7 +5,7 @@ import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 
 import { CustomOverlayRef } from '../../../shared/services/overlay/custom-overlay-ref';
 import { enableScroll } from '../../../shared/helpers/scroll-control';
-import { TodoModel } from '../../../core/models/todo.model';
+import { TodoCategory, TodoCategoryLabel, TodoModel } from '../../../core/models/todo.model';
 import { TodoService } from '../../../core/services/todo.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import {
@@ -13,6 +13,7 @@ import {
   SUCCESSFULLY_CREATED,
   SUCCESSFULLY_UPDATED
 } from '../../../shared/constants/snackbar-messages';
+import { buildLabelValueMap } from '../../../shared/helpers/label-value-map';
 
 @UntilDestroy()
 @Component({
@@ -24,6 +25,7 @@ export class TodoFormComponent implements OnInit, OnDestroy {
 
   public todoForm: FormGroup;
   public todo?: TodoModel;
+  public categories = buildLabelValueMap(TodoCategoryLabel, TodoCategory);
 
   constructor(
     private overlayRef: CustomOverlayRef<{todo?: TodoModel}, {scrollPosition: number, todo?: TodoModel}>,
